@@ -18,9 +18,10 @@ class ProposalFactory extends Factory
     public function definition(): array
     {
         return [
-            'email' => fake()->safeEmail(),
-            'hours' => fake()->numberBetween(1, 120),
+            'email' => fake()->companyEmail(),
+            'hours' => fake()->numberBetween(20, 500),
             'project_id' => Project::factory(),
+            'created_at' => fake()->dateTimeBetween('-10 days', 'now'),
         ];
     }
 }

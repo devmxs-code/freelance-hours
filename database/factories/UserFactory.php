@@ -13,11 +13,15 @@ class UserFactory extends Factory
 {
     public function definition(): array
     {
+        $names = [
+            'Tech Solutions', 'Digital Agency', 'Web Studio', 'Code Labs',
+            'Innovation Hub', 'Dev Team', 'Software House', 'Tech Corp',
+            'Digital Works', 'Code Factory', 'App Studio', 'Web Labs',
+        ];
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'rating' => fake()->randomElement([1,2,3,4,5]),
-            'avatar'=> 'https://avatar.iran.liara.run/public',
+            'name' => fake()->randomElement($names) . ' ' . fake()->lastName(),
+            'email' => fake()->unique()->companyEmail(),
         ];
     }
 }
