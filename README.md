@@ -1,66 +1,263 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Freelance Hours
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern Laravel-based platform for connecting clients with freelancers. Clients can post projects and freelancers can submit proposals with estimated hours.
 
-## About Laravel
+## 🚀 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Core Functionality
+- **Project Management**: Create, edit, and manage freelance projects
+- **Proposal System**: Freelancers can submit proposals with estimated hours
+- **Authentication**: Complete user registration and login system
+- **Dashboard**: Comprehensive dashboard with statistics and activity overview
+- **Search & Filters**: Advanced search and filtering by status, technology, and keywords
+- **Categories**: Organize projects by categories (Web Development, Mobile Apps, E-commerce, etc.)
+- **Favorites**: Save projects as favorites for quick access
+- **Notifications**: Real-time notifications for new proposals
+- **Admin Panel**: Admin users can edit all projects
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Technical Features
+- **SOLID Principles**: Clean architecture with Repository and Service layers
+- **DTOs**: Data Transfer Objects for structured data handling
+- **Form Requests**: Centralized validation logic
+- **Custom Exceptions**: Specific exceptions for business logic errors
+- **Eloquent Relationships**: Well-defined model relationships
+- **Responsive Design**: Modern UI with Tailwind CSS (black, white, gray theme)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📋 Requirements
 
-## Learning Laravel
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- SQLite (or MySQL/PostgreSQL)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone the repository**
+   ```bash
+   git clone git@github.com:devmxs-code/freelance-hours.git
+   cd freelance-hours
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-## Laravel Sponsors
+3. **Install Node dependencies**
+   ```bash
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Environment setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-### Premium Partners
+5. **Database setup**
+   ```bash
+   php artisan migrate --seed
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+6. **Build assets**
+   ```bash
+   npm run build
+   ```
 
-## Contributing
+7. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   The application will be available at `http://localhost:8000`
 
-## Code of Conduct
+## 👤 Default Admin Account
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Email**: `user@admin.com`
+- **Password**: `admin`
 
-## Security Vulnerabilities
+## 📁 Project Structure
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+app/
+├── DTOs/                    # Data Transfer Objects
+├── Enums/                   # Enumerations (ProjectStatus)
+├── Exceptions/              # Custom exceptions
+├── Http/
+│   ├── Controllers/         # Controllers
+│   │   ├── Auth/           # Authentication controllers
+│   │   └── ...             # Feature controllers
+│   └── Requests/           # Form Requests (validation)
+├── Models/                  # Eloquent Models
+├── Repositories/            # Repository pattern implementation
+│   └── Contracts/          # Repository interfaces
+└── Services/                # Service layer
+    └── Contracts/           # Service interfaces
 
-## License
+database/
+├── factories/               # Model factories
+├── migrations/              # Database migrations
+└── seeders/                 # Database seeders
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🎯 Usage
+
+### For Clients (Project Creators)
+
+1. Register or login to your account
+2. Access the dashboard
+3. Click "New Project" to create a project
+4. Fill in project details:
+   - Title and description
+   - Deadline
+   - Technology stack
+   - Categories
+   - Status (Open/Closed)
+5. View proposals received for your projects
+6. Edit your projects as needed
+
+### For Freelancers
+
+1. Browse projects on the homepage (no login required)
+2. Use search and filters to find relevant projects
+3. Click on a project to view details
+4. Submit a proposal with:
+   - Your email
+   - Estimated hours
+5. (Optional) Login to track your proposals in the dashboard
+
+## 🔧 Architecture
+
+This application follows **SOLID principles** and **Clean Code** practices:
+
+- **Single Responsibility**: Each class has one responsibility
+- **Open/Closed**: Extensible through interfaces
+- **Liskov Substitution**: Interfaces can be swapped
+- **Interface Segregation**: Focused, specific interfaces
+- **Dependency Inversion**: Dependencies through abstractions
+
+### Design Patterns
+
+- **Repository Pattern**: Abstracts data access
+- **Service Layer**: Encapsulates business logic
+- **DTO Pattern**: Structured data transfer
+- **Factory Pattern**: Model factories for testing
+
+## 🧪 Testing
+
+```bash
+php artisan test
+```
+
+## 📝 Database Seeders
+
+The application includes seeders with realistic data:
+
+- **AdminUserSeeder**: Creates admin user
+- **CategorySeeder**: Creates 8 project categories
+- **RealProjectsSeeder**: Creates 8 users with 14 real projects
+
+Run seeders:
+```bash
+php artisan db:seed
+```
+
+## 🎨 Styling
+
+The application uses **Tailwind CSS** with a professional black, white, and gray color scheme.
+
+Build assets:
+```bash
+npm run dev      # Development with hot reload
+npm run build    # Production build
+```
+
+## 🔐 Security Features
+
+- Password hashing
+- CSRF protection
+- SQL injection prevention (Eloquent ORM)
+- XSS protection (Blade templating)
+- Authorization checks (admin permissions)
+- Form validation
+
+## 📊 Database Schema
+
+### Main Tables
+- `users` - User accounts
+- `projects` - Freelance projects
+- `proposals` - Freelancer proposals
+- `categories` - Project categories
+- `project_categories` - Project-category relationships
+- `favorites` - User favorite projects
+- `notifications` - User notifications
+
+### Future Features (Migrations Ready)
+- `ratings` - Project and user ratings
+- `comments` - Proposal comments
+- `activity_logs` - Activity tracking
+
+## 🚦 Routes
+
+### Public Routes
+- `GET /` - List all projects
+- `GET /projects/{id}` - Show project details
+- `POST /projects/{id}/proposals` - Submit proposal
+
+### Authentication Routes
+- `GET /login` - Login form
+- `POST /login` - Login
+- `GET /register` - Registration form
+- `POST /register` - Register
+- `POST /logout` - Logout
+
+### Authenticated Routes
+- `GET /dashboard` - User dashboard
+- `GET /projects/create` - Create project form
+- `POST /projects` - Store project
+- `GET /projects/{id}/edit` - Edit project form
+- `PUT /projects/{id}` - Update project
+- `POST /projects/{project}/favorite` - Add favorite
+- `DELETE /projects/{project}/favorite` - Remove favorite
+- `GET /notifications` - List notifications
+- `POST /notifications/{id}/read` - Mark notification as read
+- `POST /notifications/read-all` - Mark all as read
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'feat: add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Commit Convention
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `refactor:` - Code refactoring
+- `style:` - UI/styling changes
+- `docs:` - Documentation
+- `chore:` - Maintenance tasks
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 👨‍💻 Author
+
+**Marcelo Xavier**
+
+- GitHub: [@devmxs-code](https://github.com/devmxs-code)
+
+## 🙏 Acknowledgments
+
+- Laravel Framework
+- Tailwind CSS
+- All contributors and open-source libraries used
+
+---
+
+Made with ❤️ using Laravel
